@@ -1,14 +1,7 @@
-# Welcome to your CDK TypeScript project!
+# Reproducer for https://github.com/aws/aws-cdk/pull/18255
 
-This is a blank project for TypeScript development with CDK.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+* `npm install`
+* `npm run cdk synth` (=> should produce a yaml with success)
+* `git checkout aws-cdk-1-139-0`
+* `npm install` 
+* `npm run cdk synth` (=> should fail with "You need to provide a concrete account for the target stack when using cross-account or cross-region events")
